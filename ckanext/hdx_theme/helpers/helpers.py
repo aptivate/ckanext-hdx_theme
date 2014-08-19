@@ -8,18 +8,15 @@ import ckan.model as model
 import ckan.lib.base as base
 import ckan.logic as logic
 import datetime
-import version
+import ckanext.hdx_theme.version as version
 import count
 import json
 import logging
 import ckan.plugins.toolkit as tk
 import re
 import ckan.new_authz as new_authz
-import urlparse as urlparse
-import pylons.config as config
 
 import ckanext.hdx_theme.counting_actions as counting
-
 
 from webhelpers.html import escape, HTML, literal, url_escape
 from ckan.common import _
@@ -226,14 +223,3 @@ def hdx_organizations_available_with_roles():
                                 y['display_name'].lower())
     return organizations_available
 
-
-def hdx_remove_schema_and_domain_from_url(url):
-    urlTuple = urlparse.urlparse(url)
-
-    modifiedTuple = (('', '') + urlTuple[2:6])
-    modifiedUrl = urlparse.urlunparse(modifiedTuple)
-    return modifiedUrl
-
-
-def hdx_get_ckan_config(config_name):
-    return config.get(config_name)
