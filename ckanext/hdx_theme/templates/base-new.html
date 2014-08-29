@@ -68,8 +68,7 @@
       {% endblock %}
     #}
     {%- block styles %}
-      {% resource g.main_css[6:] %}
-      <link rel="stylesheet" href="/hdx_theme.css" />
+      <link rel="stylesheet" href="/css/lite-main.css" />
     {% endblock %}
 
     {% block head_extras %}
@@ -117,6 +116,7 @@
       {% endblock %}
     #}
     {%- block scripts %}
+        {% resource 'hdx_theme/bootstrap' %}
     {% endblock -%}
 
 
@@ -130,7 +130,8 @@
 
   </body>
   {%- block scripts2 %}
+    <!-- Doesn't seem needed anymore
     <script src="/scripts.js"></script>
-    <script src="/google-analytics.js"></script>
+    -->
   {% endblock -%}
 </html>
